@@ -130,6 +130,26 @@ public class DBUtil {
 	}
 
 	/*
+	 * Input: Table Output: [23,45,60] 按月份排列的数据
+	 */
+	public String[] gen_moth_data(ArrayList<Map<String, Object>> tbl) {
+
+		String[] res = new String[12];
+		
+		for (int i = 0; i < tbl.size(); i++) {
+			int mm =  Integer.parseInt(tbl.get(i).get("month").toString() );
+			String amount = tbl.get(i).get("amount").toString() ;
+//			System.out.println("tbl i:" + tbl.get(i));
+//			System.out.println("mm:" + mm + ", amount:" + amount + "\n");
+			if (1 <= mm && mm <= 12) {
+				res[mm-1] = amount;
+			}
+		}
+		
+		return res;
+	}
+	
+	/*
 	 * 从 request 中获取参数，参数名称由 source 指定 Input: column name Output: HashMap "k1":"v1",
 	 * "k2":"2"
 	 */

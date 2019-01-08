@@ -138,7 +138,7 @@ export default {
     });
 
     //获取用户列表（分页）
-    mock.onGet('/user/listpage').reply(config => {
+    mock.onGet('/user_listpage.do').reply(config => {
       let {page, name} = config.params;
       let mockUsers = _Users.filter(user => {
         if (name && user.name.indexOf(name) == -1) return false;
