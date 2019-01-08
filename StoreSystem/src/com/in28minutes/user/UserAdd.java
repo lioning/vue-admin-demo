@@ -33,17 +33,18 @@ public class UserAdd extends HttpServlet {
 		String addr = "";
 
 		System.out.println(
-				"UserAdd doPost Hit" + "name:" + name + ", pwd:" + pwd + ", pwd2:" + pwd_confirm + ", phone:" + phone);
+				"UserAdd doPost Hit " + "name:" + name + ", pwd:" + pwd + ", pwd2:" + pwd_confirm + ", phone:" + phone);
 
 		if (pwd.equals(pwd_confirm) == false) {
-			util.send_http_json("{\"msg\":\"再次键入的密码不一致！\", \"code\":501 " + "}", response);
+			util.send_msg_json("两次键入的密码不一致！", 502, response);
 			return;
 		}
 
-		String q_sql = "SELECT * FROM store WHERE `user_name`='" + name + "' ";
+		String q_sql = "SELECT * FROM user WHERE `user_name`='" + name + "' ";
+		System.out.println("q_sql:" + q_sql);
 		ArrayList<Map<String, Object>> q_res = db.execute_query(q_sql);
 		if (q_res.size() > 0) {
-			util.send_http_json("{\"msg\":\"用户已存在\", \"code\":502 " + "}", response);
+			util.send_msg_json("用户已存在！ ", 502, response);
 			return;
 		}
 		// YYYY-MM-DD HH:MM:SS
@@ -57,6 +58,7 @@ public class UserAdd extends HttpServlet {
 		} catch (Exception e) {
 			// 处理 Class.forName 错误
 			e.printStackTrace();
+			util.send_msg_json("操作出错", 500, response);
 		} finally {
 //			util.send_http_json("{\"msg\":\"操作出错\", \"code\":500 " + "}", response);
 		}
