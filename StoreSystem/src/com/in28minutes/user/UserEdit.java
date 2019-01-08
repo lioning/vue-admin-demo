@@ -26,7 +26,7 @@ public class UserEdit extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String name = request.getParameter("name");
 		String phone = request.getParameter("phone");
-		String pwd  = request.getParameter("wd");
+		String pwd  = request.getParameter("pwd");
 		String pwd_confirm = request.getParameter("pwd_confirm");
 
 		System.out.printf("user_edit recieved, name:%s, phone:%s, pwd:%s, pwd_confirm:%s\n", name, phone, pwd, pwd_confirm);
@@ -34,7 +34,7 @@ public class UserEdit extends HttpServlet {
 		String pwd_sql = "";
 		if (pwd != null || pwd_confirm != null) {
 			if (pwd != null && ! pwd.equals(pwd_confirm) || pwd_confirm != null && ! pwd_confirm.equals(pwd)) {
-				util.send_http_json("{\"msg\":\"两次键入的密码不一致！\", \"code\":501 " + "}", response);
+				util.send_msg_json("两次键入的密码不一致！", 502, response);
 				return;
 			}
 			pwd_sql = ", `user_pwd` = '" + pwd + "'";
@@ -47,6 +47,7 @@ public class UserEdit extends HttpServlet {
 		} catch (Exception e) {
 			// 处理 Class.forName 错误
 			e.printStackTrace();
+			util.send_msg_json("操作出错", 500, response);
 		} finally {
 //			util.send_http_json("{\"msg\":\"操作出错\", \"code\":500 " + "}", response);
 		}
