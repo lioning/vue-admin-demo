@@ -68,15 +68,6 @@ public class LoginRealService extends HttpServlet {
 //			System.out.println("Login Test, string2:" +  util.gen_json_raw(res, name_map));
 
 			util.send_http_json(util.gen_json_raw(res, name_map), response);
-
-//			request.getSession().setAttribute("name", name);			
-//			response.setCharacterEncoding("UTF-8");
-//			response.setContentType("application/json;charset=utf-8");
-//			PrintWriter out = response.getWriter();
-//			String resJSON = "{\"msg\":\"success\", \"code\":200, \"user\":{\"name\":\"OKKK\", \"avatar\":\"222\"}}";
-//			out.print(resJSON);
-//			out.flush();
-//			out.close();			
 		} else {
 			HashMap<String, String> name_map = new HashMap<String, String>();
 			HashMap<String, Object> res = new HashMap<String, Object>();
@@ -85,14 +76,6 @@ public class LoginRealService extends HttpServlet {
 
 			util.send_http_json(util.gen_json_raw(res, name_map), response);
 			
-//			response.setCharacterEncoding("UTF-8");
-//			response.setContentType("application/json;charset=utf-8");
-//			PrintWriter out = response.getWriter();
-//			String resJSON = "{\"msg\":\"用户名或密码错误!\", \"code\":500, \"user\":\"" + name + "\"}";
-//			out.print(resJSON);
-//			out.flush();
-//			out.close();
-
 		}
 	}
 
