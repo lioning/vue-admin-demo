@@ -6,6 +6,7 @@ let base = '';
 // 分隔符 '/' 必须放在 base 变量内，否则发布时将 base 置为空，请求路径将是绝对路径（根路径），而不是相对 appname 的相对路径
 //export const requestLogin = params => { return axios.post(`${base}login`, params).then(res => res.data); };
 export const requestLogin = params => { return axios.post(`${base}do_login.do`, qs.stringify(params), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).then(res => res.data); };
+export const requestLogout= params => { return axios.post(`${base}do_logout.do`, qs.stringify(params), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).then(res => res.data); };
 
 export const getUserList = params => { return axios.get(`${base}user/list`, { params: params }); };
 
