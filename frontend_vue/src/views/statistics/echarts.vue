@@ -84,7 +84,8 @@
                             type: 'line',
                             stack: '总量',
                             // data: [120, 132, 101, 134, 90, 230, 210]
-                            data: this.seriesdata
+                            data: this.seriesdata,
+                            smooth: true
                         },
                         // {
                         //     name: '联盟广告',
