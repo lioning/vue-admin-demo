@@ -32,7 +32,7 @@ public class ProductAdd extends HttpServlet {
 		name_map.put("product_price_vip", "price_vip");
 		name_map.put("product_serial", "serial");
 		name_map.put("product_discount", "discount");
-		name_map.put("product_supplier_no", "supplier");
+//		name_map.put("product_supplier_no", "supplier");
 		name_map.put("product_unit", "unit");
 
 		String[] paraNames = name_map.values().toArray(new String[0]);
@@ -53,11 +53,11 @@ public class ProductAdd extends HttpServlet {
 
 		try {
 			db.execute_udate(sql);
-//			util.send_http_json("{\"msg\":\"success\", \"code\":200 " + "}", response);
 	    	util.send_msg_json("success", 200, response);
 		} catch (Exception e) {
 			// 处理 Class.forName 错误
 			e.printStackTrace();
+			util.send_msg_json("操作出错!", 500, response);
 		} finally {
 //			util.send_http_json("{\"msg\":\"操作出错\", \"code\":500 " + "}", response);
 		}

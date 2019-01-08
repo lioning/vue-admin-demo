@@ -32,7 +32,7 @@ public class ProductEdit extends HttpServlet {
 		name_map.put("price_vip", "product_price_vip");
 		name_map.put("serial", "product_serial");
 		name_map.put("discount", "product_discount");
-		name_map.put("supplier", "product_supplier_no");
+//		name_map.put("supplier", "product_supplier_no");
 		name_map.put("unit", "product_unit");
 
 		String[] paraNames = name_map.keySet().toArray(new String[0]);
@@ -42,15 +42,14 @@ public class ProductEdit extends HttpServlet {
 		String no = request.getParameter("no");
 		String sql = "UPDATE product SET " + util.gen_set_sql(paras, name_map) + "WHERE `product_no` = '" + no + "'";
 		;
-//		String sql = "UPDATE product SET (" + util.get_insert_cols(colNames) + ") VALUES ("
-//				+ util.get_insert_vals(paras, colNames, name_map) + ") WHERE `product_no` = '" + no + "'";
+
 		try {
 			db.execute_udate(sql);
-//			util.send_http_json("{\"msg\":\"success\", \"code\":200 " + "}", response);
 			util.send_msg_json("success", 200, response);
 		} catch (Exception e) {
 			// 处理 Class.forName 错误
 			e.printStackTrace();
+			util.send_msg_json("操作出错!", 500, response);
 		} finally {
 //			util.send_http_json("{\"msg\":\"操作出错\", \"code\":500 " + "}", response);
 		}
