@@ -73,6 +73,8 @@
 </template>
 
 <script>
+	import util from '../common/js/util'
+	import { requestLogout } from '../api/api';
 	export default {
 		data() {
 			return {
@@ -110,6 +112,15 @@
 				this.$confirm('确认退出吗?', '提示', {
 					//type: 'warning'
 				}).then(() => {
+					var user = sessionStorage.getItem('user');
+					//console.log("Home.vue sessionStorage:", sessionStorage)
+					if (user) {
+						user = JSON.parse(user);
+						let para = { "name" : user.name };
+						requestLogout(para).then((res) => {
+							console.log("requestLogout res:", res);
+							});
+					}
 					sessionStorage.removeItem('user');
 					_this.$router.push('/login');
 				}).catch(() => {

@@ -60,7 +60,9 @@ public class LoginRealService extends HttpServlet {
 			HashMap<String, Object> user = new HashMap<String, Object>();
 			user.put("name", name);
 			user.put("avatar", type);
-
+			
+			request.getSession().setAttribute("name", name);
+			
 			HashMap<String, Object> res = new HashMap<String, Object>();
 			res.put("msg", "success");
 			res.put("code", "200");
