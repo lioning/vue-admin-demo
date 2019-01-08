@@ -25,7 +25,8 @@ def product():
             unit = random.choice(['罐','箱','瓶','件'])
             supplier = "S" + '%05d' % random.randint(1,101)
 
-            print ('P' + '%05d' % no + "," + str(name) + "," + str(price) + "," + str(price_vip) + "," + str(serial) + "," + str(discount) + "," + str(unit) + "," + str(supplier))
+            #print ('P' + '%05d' % no + "," + str(name) + "," + str(price) + "," + str(price_vip) + "," + str(serial) + "," + str(discount) + "," + str(unit) + "," + str(supplier))
+            print ('P' + '%05d' % no + "," + str(name) + "," + str(price) + "," + str(price_vip) + "," + str(serial) + "," + str(discount) + "," + str(unit))
             no += 1
 # (`product_no`,
 # `product_name`,
@@ -63,8 +64,8 @@ def amount_data():
 
 
 
-user_data()
+# user_data()
 # supplier_data()
 # store_data()
 # amount_data()
-# product()
+product()
