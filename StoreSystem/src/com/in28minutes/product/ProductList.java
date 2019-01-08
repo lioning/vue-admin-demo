@@ -48,7 +48,7 @@ public class ProductList extends HttpServlet {
 		name_map.put("product_price_vip", "price_vip");
 		name_map.put("product_serial", "serial");
 		name_map.put("product_discount", "discount");
-		name_map.put("product_supplier", "supplier");
+		name_map.put("product_supplier_no", "supplier");
 		name_map.put("product_unit", "unit");
 
 		int total = db.execute_query_count("SELECT COUNT(*) FROM product" + cond);

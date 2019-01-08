@@ -32,7 +32,7 @@ public class ProductEdit extends HttpServlet {
 		name_map.put("price_vip", "product_price_vip");
 		name_map.put("serial", "product_serial");
 		name_map.put("discount", "product_discount");
-		name_map.put("supplier", "product_supplier");
+		name_map.put("supplier", "product_supplier_no");
 		name_map.put("unit", "product_unit");
 
 		String[] paraNames = name_map.keySet().toArray(new String[0]);

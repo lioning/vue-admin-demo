@@ -32,7 +32,7 @@ public class ProductAdd extends HttpServlet {
 		name_map.put("product_price_vip", "price_vip");
 		name_map.put("product_serial", "serial");
 		name_map.put("product_discount", "discount");
-		name_map.put("product_supplier", "supplier");
+		name_map.put("product_supplier_no", "supplier");
 		name_map.put("product_unit", "unit");
 
 		String[] paraNames = name_map.values().toArray(new String[0]);
