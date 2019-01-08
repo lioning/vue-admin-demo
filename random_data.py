@@ -44,7 +44,7 @@ def user_data():
         addr = fake.address()
         phone = fake.phone_number()
         pwd = fake.password(special_chars=False)
-        print (name, ",", 1, ",", pwd, ",", addr, ",", phone)
+        print (name, ",", 1, ",", pwd, ",", phone, ",", addr )
 
 def store_data():
     for i in range(1, 25):
@@ -63,8 +63,8 @@ def amount_data():
 
 
 
-# user_data()
+user_data()
 # supplier_data()
 # store_data()
-amount_data()
+# amount_data()
 # product()
