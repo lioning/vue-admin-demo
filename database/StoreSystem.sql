@@ -33,7 +33,15 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `store_system`.`supplier`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `store_system`.`supplier` (
   `supplier_no` VARCHAR(30) NOT NULL,
+  `supplier_name` VARCHAR(100) NULL,
+  `supplier_addr` VARCHAR(100) NULL,
+  `supplier_phone` VARCHAR(20) NULL,
+  `supplier_email` VARCHAR(45) NULL,
+  PRIMARY KEY (`supplier_no`))
 ENGINE = InnoDB;
 
 
