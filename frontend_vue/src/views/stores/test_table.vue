@@ -71,7 +71,7 @@
 					<el-input type="textarea" v-model="addForm.addr"></el-input>
 				</el-form-item>
 				<el-form-item label="所在地区2">
-					<el-select v-model="addForm.supplier" placeholder="字段类型">
+					<el-select v-model="addForm.supplier" placeholder="选择供应商">
  						<!-- <el-option label="是" value="Y"> </el-option> -->
 						<el-option v-for="(item,index) in addForm.allSupplier" :key="index" :label="item.label" :value="item.value">
 						</el-option>
@@ -342,7 +342,7 @@
 							this.addLoading = true;
 							//NProgress.start();
 							let para = Object.assign({}, this.addForm);
-							console.log("add stores para:", para);
+							console.log("test tables para:", para);
 							addStore(para).then((res) => {
 								this.addLoading = false;
 								//NProgress.done();
